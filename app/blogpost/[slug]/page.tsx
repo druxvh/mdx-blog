@@ -4,11 +4,12 @@ import rehypeFormat from "rehype-format";
 import rehypeStringify from "rehype-stringify";
 import remarkParse from "remark-parse";
 import remarkRehype from "remark-rehype";
-// import { read } from "to-vfile";
+import rehypeAutolinkHeadings from "rehype-autolink-headings";
+import rehypeSlug from "rehype-slug";
 import { unified } from "unified";
-// import { reporter } from "vfile-reporter";
 import fs from "fs";
 import matter from "gray-matter";
+import OnThisPage from "@/components/OnThisPage";
 
 const BlogPost = async ({ params }: { params: { slug: string } }) => {
   const file = unified()
@@ -16,7 +17,9 @@ const BlogPost = async ({ params }: { params: { slug: string } }) => {
     .use(remarkRehype)
     .use(rehypeDocument)
     .use(rehypeFormat)
-    .use(rehypeStringify);
+    .use(rehypeStringify)
+    .use(rehypeSlug)
+    .use(rehypeAutolinkHeadings);
 
   const filePath = `content/${params.slug}.md`;
   const fileContent = fs.readFileSync(filePath, "utf-8");
@@ -26,9 +29,13 @@ const BlogPost = async ({ params }: { params: { slug: string } }) => {
 
   return (
     <MaxWidthWrapper className="prose dark:prose-invert">
-      <h1>{data.title}</h1>
-      <div dangerouslySetInnerHTML={{ __html: htmlContent }}></div>
-      <div>post : {params.slug}</div>
+      <div className="flex gap-3">
+        <article className="px-10">
+          <h1>{data.title}</h1>
+          <div dangerouslySetInnerHTML={{ __html: htmlContent }}></div>
+        </article>
+        <OnThisPage className="not-prose" htmlContent={htmlContent} />
+      </div>
     </MaxWidthWrapper>
   );
 };
