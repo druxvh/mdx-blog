@@ -2,18 +2,16 @@
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 import { buttonVariants } from "@/components/ui/button";
 import Link from "next/link";
-import { PrismaClient } from "@prisma/client";
+import { prisma } from "@/lib/prisma";
 
 interface BlogType {
   id: number;
-  slug: string;
-  content: string;
   title: string;
+  slug: string;
   description: string;
+  content: string;
   imageURL: string;
 }
-
-const prisma = new PrismaClient();
 
 const BlogPage = async () => {
   const blogs = await prisma.blogPost.findMany({
