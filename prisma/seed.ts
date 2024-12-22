@@ -1,143 +1,124 @@
-import { PrismaClient } from "@prisma/client";
-
-const prisma = new PrismaClient();
+import { prisma } from "@/lib/prisma";
 
 async function main() {
   await prisma.blogPost.createMany({
     data: [
       {
-        slug: "why-javascript-rules-the-web",
-        title: "Why JavaScript Rules the Web in 2024",
+        slug: "modern-web-development-2024",
+        title: "Modern Web Development Trends in 2024",
         description:
-          "Explore why JavaScript remains the dominant language for web development and how it continues to evolve with frameworks like Next.js, React, and others.",
+          "Discover the key web development trends for 2024 that every developer should know, including AI integration, modern frameworks, and performance optimization.",
         imageURL:
           "https://images.pexels.com/photos/29666174/pexels-photo-29666174/free-photo-of-abstract-geometric-stained-glass-windows.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-        content: `
-            # Why JavaScript Rules the Web in 2024
-            
-            ![JavaScript](https://example.com/images/javascript-rules.webp)
-            
-            JavaScript has come a long way since its inception in 1995. In 2024, it remains the **king of web development**, powering not just frontend experiences but also backend, mobile apps, and even machine learning.
-            
-            ---
-            
-            ## 🚀 **Why JavaScript Remains Undefeated**
-            
-            - **Universal Language**: Runs everywhere (browsers, servers, mobile, desktop).
-            - **Massive Ecosystem**: Frameworks like **Next.js**, **React**, and **Vue**.
-            - **Modern Features**: Async/await, destructuring, arrow functions.
-            
-            > *“JavaScript is the language of the web, and it’s here to stay.”*
-            `,
+        content: `---
+slug: "modern-web-development-2024"
+title: "Modern Web Development Trends in 2024"
+description: "Discover the key web development trends for 2024 that every developer should know, including AI integration, modern frameworks, and performance optimization."
+imageURL: "https://images.pexels.com/photos/29666174/pexels-photo-29666174/free-photo-of-abstract-geometric-stained-glass-windows.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+---
+
+![Web Development Trends](https://images.pexels.com/photos/29666174/pexels-photo-29666174/free-photo-of-abstract-geometric-stained-glass-windows.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)
+
+Web development is evolving rapidly, and **2024** is no exception. Staying up-to-date with modern trends is crucial for developers who want to stay ahead.
+
+---
+
+## **AI-Powered Web Applications**
+
+The integration of **AI** tools into web development is revolutionizing how developers build and optimize applications. Platforms like OpenAI and Google Gemini allow seamless AI integration into frontends and backends.
+
+---
+
+## **Modern Frameworks Continue to Rule**
+
+Frameworks like **Next.js**, **Nuxt.js**, and **SvelteKit** are transforming how developers create modern, scalable web applications.
+
+- **Next.js**: Improved performance and server-side rendering with the latest optimizations.
+- **React**: React 18 and beyond introduce concurrent rendering and Suspense.
+- **SvelteKit**: Lightweight and performance-focused.
+
+---
+
+## **Web Performance Optimization**
+
+Performance remains a top priority in 2024. Google Core Web Vitals still guide optimization efforts.
+
+### Key Optimization Techniques:
+- **Code Splitting**: Load only what's necessary.
+- **Edge Functions**: Deploy functions globally using platforms like Vercel or Cloudflare Workers.
+- **Optimized Images**: Use modern formats like WebP and AVIF.
+
+---
+
+## **Adoption of Web3 and Blockchain**
+
+Web3 is enabling decentralized applications (dApps) and smart contracts. Frameworks like **web3.js** and **ethers.js** are helping developers integrate blockchain technology into web applications.
+
+> *"The future of the web is decentralized and transparent."*
+
+---
+
+## **Security as a Forefront**
+
+With the growing threats of cyber attacks, web security is now a **core focus** for all web applications.
+
+### Key Measures:
+- **Authentication**: OAuth, JWT, and two-factor authentication.
+- **Secure APIs**: Use HTTPS and secure token management.
+- **Content Security Policies (CSP)**: Prevent cross-site scripting (XSS).
+
+---
+
+## **Conclusion**
+
+Web development in 2024 is all about combining modern technologies with **performance**, **AI**, and **security**. Staying ahead means learning and adopting these trends to build efficient, future-proof applications.
+
+Happy coding! 🚀
+        `,
       },
       {
-        slug: "nextjs-14-new-features",
-        title: "Top 5 Features of Next.js 14 You Should Know",
+        slug: "future-of-ai-in-web",
+        title: "How AI Will Revolutionize Web Development in 2024",
         description:
-          "Discover the top new features of Next.js 14 that improve performance, scalability, and developer experience.",
+          "Understand the role of AI in web development and how it will shape the future of building dynamic, responsive, and scalable web apps.",
         imageURL:
-          "https://images.pexels.com/photos/29666174/pexels-photo-29666174/free-photo-of-abstract-geometric-stained-glass-windows.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-        content: `
-            # Top 5 Features of Next.js 14 You Should Know
-            
-            ![Next.js](https://example.com/images/nextjs-14-features.webp)
-            
-            Next.js 14 introduces a variety of performance and developer-friendly enhancements.
-            
-            ---
-            
-            ## ⚡ **Top Features**
-            
-            1. **Server Components**: Improve rendering performance.
-            2. **Middleware Enhancements**: Better control over requests.
-            3. **Improved Build Speed**: Faster bundling and optimizations.
-            4. **Edge Functions**: Deploy globally on edge networks.
-            5. **Enhanced TypeScript Support**: Improved DX for TS developers.
-            
-            ---
-            
-            Next.js continues to innovate, making it the go-to framework for modern web applications.
-            `,
-      },
-      {
-        slug: "react-18-features",
-        title: "React 18: What’s New and Why It Matters",
-        description:
-          "Learn about React 18's new features, including concurrent rendering, suspense, and automatic batching.",
-        imageURL:
-          "https://images.pexels.com/photos/29666174/pexels-photo-29666174/free-photo-of-abstract-geometric-stained-glass-windows.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-        content: `
-            # React 18: What’s New and Why It Matters
-            
-            ![React](https://example.com/images/react-18.webp)
-            
-            React 18 introduced powerful new features to improve performance and developer experience.
-            
-            ---
-            
-            ## 🎉 **Key Features**
-            
-            - **Concurrent Rendering**: Smoother UI updates.
-            - **Suspense Improvements**: Better data fetching capabilities.
-            - **Automatic Batching**: Reduces unnecessary re-renders.
-            
-            React 18 ensures faster and more efficient web applications.
-            `,
-      },
-      {
-        slug: "fullstack-development-guide",
-        title: "The Ultimate Fullstack Development Guide for Beginners",
-        description:
-          "A complete guide for beginners to start building fullstack web applications using modern tools like Next.js and Node.js.",
-        imageURL:
-          "https://images.pexels.com/photos/29666174/pexels-photo-29666174/free-photo-of-abstract-geometric-stained-glass-windows.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-        content: `
-            # The Ultimate Fullstack Development Guide for Beginners
-            
-            ![Fullstack](https://example.com/images/fullstack-guide.webp)
-            
-            Are you new to web development? This guide will take you through the essential tools and steps to become a fullstack developer.
-            
-            ---
-            
-            ## 🔧 **What You Will Learn**
-            
-            1. **Frontend**: Build UI using **React** and **Next.js**.
-            2. **Backend**: Create APIs with **Node.js** and **Express**.
-            3. **Database**: Store data with **MongoDB** or **PostgreSQL**.
-            4. **Deployment**: Deploy apps to **Vercel** or **Heroku**.
-            
-            By the end, you'll be able to build and deploy fullstack applications from scratch!
-            `,
-      },
-      {
-        slug: "why-typescript-is-important",
-        title: "Why TypeScript is Essential for Modern JavaScript Projects",
-        description:
-          "Explore how TypeScript improves code quality and reduces bugs in large-scale JavaScript applications.",
-        imageURL:
-          "https://images.pexels.com/photos/29666174/pexels-photo-29666174/free-photo-of-abstract-geometric-stained-glass-windows.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-        content: `
-            # Why TypeScript is Essential for Modern JavaScript Projects
-            
-            ![TypeScript](https://example.com/images/typescript-importance.webp)
-            
-            TypeScript adds static types to JavaScript, improving code quality and maintainability.
-            
-            ---
-            
-            ## 🛠️ **Benefits of TypeScript**
-            
-            1. **Type Safety**: Reduces runtime errors with static checking.
-            2. **Better IntelliSense**: Autocompletion and hints in editors.
-            3. **Improved Refactoring**: Make changes with confidence.
-            
-            If you're building a large-scale app, TypeScript is a game-changer!
-            `,
+          "https://images.pexels.com/photos/3184466/pexels-photo-3184466.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        content: `---
+slug: "future-of-ai-in-web"
+title: "How AI Will Revolutionize Web Development in 2024"
+description: "Understand the role of AI in web development and how it will shape the future of building dynamic, responsive, and scalable web apps."
+imageURL: "https://images.pexels.com/photos/3184466/pexels-photo-3184466.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+---
+
+![AI and Web Development](https://images.pexels.com/photos/3184466/pexels-photo-3184466.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)
+
+AI is not just a buzzword anymore; it's revolutionizing how developers approach web applications.
+
+---
+
+## **What AI Brings to Web Development**
+
+- **Personalization**: AI creates unique user experiences tailored to individual preferences.
+- **Automation**: Simplifies workflows for developers with tools like AI code generation.
+- **Advanced Analytics**: AI-powered tools help analyze user behavior and optimize web apps in real-time.
+
+---
+
+## **AI Tools for Developers**
+
+1. **OpenAI APIs**: Seamlessly integrate conversational AI.
+2. **Google Gemini**: Enhance app intelligence with advanced AI models.
+3. **TensorFlow.js**: Build machine learning models directly in the browser.
+
+---
+
+AI-driven web development is the future. Are you ready to embrace it?
+        `,
       },
     ],
   });
 }
+
 main()
   .then(() => console.log("DB seeded"))
   .catch((e) => console.error(e))

@@ -14,6 +14,7 @@ interface BlogType {
 }
 
 const BlogPage = async () => {
+  // Fetch blog posts from the db
   const blogs = await prisma.blogPost.findMany({
     select: {
       id: true,
@@ -28,8 +29,12 @@ const BlogPage = async () => {
     <MaxWidthWrapper className=" mx-auto px-4 my-10">
       <h1 className="text-3xl font-bold mb-10 text-center">Our Blogs</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* Render Blog Posts */}
         {blogs.map((blog: BlogType, index: number) => (
-          <div key={index} className="shadow-lg rounded-lg overflow-hidden">
+          <div
+            key={index}
+            className="shadow-lg dark:border dark:border-gray-300 dark:border-opacity-10 rounded-lg overflow-hidden"
+          >
             <img
               className="w-full h-64 object-cover object-top"
               src={blog.imageURL}

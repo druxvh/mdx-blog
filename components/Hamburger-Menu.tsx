@@ -5,6 +5,7 @@ import { Menu } from "lucide-react";
 import {
   Sheet,
   SheetContent,
+  SheetDescription,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
@@ -33,6 +34,7 @@ function HamburgerMenu({ className }: HamburgerMenuProps) {
       <SheetContent>
         <SheetHeader>
           <SheetTitle></SheetTitle>
+          <SheetDescription></SheetDescription>
         </SheetHeader>
         <nav className="w-full mt-8 flex flex-col gap-4 font-bold text-xl">
           {navLinks.map(

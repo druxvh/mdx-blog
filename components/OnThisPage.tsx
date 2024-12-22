@@ -17,12 +17,14 @@ const OnThisPage = ({
 }) => {
   const [links, setLinks] = useState<null | LinkType[]>(null);
 
+  // Generate h2 as Links from the parsed markdown content for on page navigation
   useEffect(() => {
     const temp = document.createElement("div");
     temp.innerHTML = htmlContent;
-    const headings = temp.querySelectorAll("h2");
 
+    const headings = temp.querySelectorAll("h2");
     const generatedLinks: LinkType[] = [];
+
     headings.forEach((heading, index) => {
       const id = heading.id || `heading-${index}`;
       heading.id = id;
@@ -31,6 +33,7 @@ const OnThisPage = ({
         id: id,
         text: (heading as HTMLElement).innerText,
       });
+
       setLinks(generatedLinks);
     });
   }, [htmlContent]);
@@ -46,7 +49,7 @@ const OnThisPage = ({
                 <li key={link.id} className="p-1 leading-none">
                   <a
                     href={`#${link.id}`}
-                    className="text-xs text-gray-900 tracking-tight font-sans font-medium"
+                    className="text-xs text-gray-900 dark:text-slate-200 tracking-tight font-sans font-medium"
                   >
                     {link.text}
                   </a>
