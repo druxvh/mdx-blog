@@ -1,7 +1,7 @@
-/* eslint-disable @next/next/no-img-element */
 import { prisma } from "@/lib/prisma";
 import { BlogType } from "@/app/blog/page";
 import Link from "next/link";
+import Image from "next/image";
 
 const BlogSection = async () => {
   // Fetch blog posts from the db
@@ -16,7 +16,7 @@ const BlogSection = async () => {
     },
   });
   return (
-    <section className="h-screen">
+    <section className="min-h-screen py-10">
       <div className="font-sans p-6">
         <div className="grid grid-cols-1 lg:grid-cols-3 lg:gap-8 gap-12 items-center max-w-6xl max-lg:max-w-2xl max-sm:max-w-sm mx-auto">
           <div className="flex flex-col">
@@ -32,9 +32,11 @@ const BlogSection = async () => {
             {blogs.map((blog: BlogType) => (
               <div key={blog.id} className="rounded overflow-hidden group">
                 <Link href={`/blogpost/${blog.slug}`}>
-                  <img
+                  <Image
                     src={blog.imageURL}
                     alt={blog.title}
+                    width={1100}
+                    height={650}
                     className="w-full h-52 object-cover rounded-md"
                   />
                   <div className="py-4">

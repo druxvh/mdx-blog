@@ -1,10 +1,10 @@
-/* eslint-disable @next/next/no-img-element */
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 import { buttonVariants } from "@/components/ui/button";
 import Link from "next/link";
 import { prisma } from "@/lib/prisma";
+import Image from "next/image";
 
-interface BlogType {
+export interface BlogType {
   id: number;
   title: string;
   slug: string;
@@ -26,19 +26,21 @@ const BlogPage = async () => {
     },
   });
   return (
-    <MaxWidthWrapper className=" mx-auto px-4 my-10">
+    <MaxWidthWrapper className="min-h-screen mx-auto p-4 my-10">
       <h1 className="text-3xl font-bold mb-10 text-center">Our Blogs</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {/* Render Blog Posts */}
-        {blogs.map((blog: BlogType, index: number) => (
+        {blogs.map((blog: BlogType) => (
           <div
-            key={index}
+            key={blog.id}
             className="shadow-lg dark:border dark:border-gray-300 dark:border-opacity-10 rounded-lg overflow-hidden"
           >
-            <img
+            <Image
               className="w-full h-64 object-cover object-top"
               src={blog.imageURL}
               alt={blog.title}
+              width={1260}
+              height={750}
             />
             <div className="p-4">
               <h2 className="text-xl font-semibold mb-2">{blog.title}</h2>

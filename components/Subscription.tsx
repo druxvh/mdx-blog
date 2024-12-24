@@ -6,7 +6,7 @@ const Subscription = () => {
   };
 
   return (
-    <section className="h-[80%] py-[20%]">
+    <section className="py-32 border-b-2">
       <div className="py-16 px-6 font-[sans-serif]">
         <div className="max-w-5xl mx-auto text-center">
           <h2 className="text-5xl font-bold mb-6">
