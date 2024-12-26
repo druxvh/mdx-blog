@@ -41,6 +41,7 @@ const BlogPage = async () => {
               alt={blog.title}
               width={1260}
               height={750}
+              priority={true}
             />
             <div className="p-4">
               <h2 className="text-xl font-semibold mb-2">{blog.title}</h2>

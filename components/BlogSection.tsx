@@ -37,6 +37,7 @@ const BlogSection = async () => {
                     alt={blog.title}
                     width={1100}
                     height={650}
+                    priority={true}
                     className="w-full h-52 object-cover rounded-md"
                   />
                   <div className="py-4">
