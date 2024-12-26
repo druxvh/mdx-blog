@@ -12,14 +12,16 @@ import matter from "gray-matter";
 import { unified } from "unified";
 import { prisma } from "@/lib/prisma";
 
+type ParamsType = Promise<{ slug: string }>;
+
 export const generateStaticParams = async () => {
   // Fetching the slugs from the blogposts to generate dynamic routes during SSG
   const blogs = await prisma.blogPost.findMany({ select: { slug: true } });
   return blogs.map((blog) => ({ slug: blog.slug }));
 };
 
-const BlogPost = async ({ params }: { params: { slug: string } }) => {
-  const { slug } = await params;
+const BlogPost = async (props: { params: ParamsType }) => {
+  const { slug } = await props.params;
 
   // Fetches blog containing the slug from the db
   const blog = await prisma.blogPost.findUnique({ where: { slug } });
