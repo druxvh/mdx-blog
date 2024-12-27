@@ -1,8 +1,8 @@
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 import { buttonVariants } from "@/components/ui/button";
 import Link from "next/link";
-import { prisma } from "@/lib/prisma";
 import Image from "next/image";
+import prisma from "@/lib/prisma";
 
 export interface BlogType {
   id: number;

@@ -10,7 +10,7 @@ import rehypeSlug from "rehype-slug";
 import remarkGfm from "remark-gfm";
 import matter from "gray-matter";
 import { unified } from "unified";
-import { prisma } from "@/lib/prisma";
+import prisma from "@/lib/prisma";
 
 type ParamsType = Promise<{ slug: string }>;
 
