@@ -1,11 +1,11 @@
-'use client'
+"use client";
 
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 import Link from "next/link";
 
 function About() {
   return (
-    <MaxWidthWrapper className="h-screen py-10 px-8 sm:px-4 max-w-xl">
+    <MaxWidthWrapper className="h-screen py-10 px-6 sm:px-4 max-w-xl">
       <div className=" flex flex-col gap-3 text-center text-pretty antialiased">
         <h1 className="text-4xl font-bold">About Me</h1>
         <div className="flex flex-col gap-3 py-5">

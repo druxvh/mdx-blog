@@ -50,7 +50,7 @@ const BlogPost = async (props: { params: ParamsType }) => {
     <MaxWidthWrapper className="py-8 prose dark:prose-invert">
       <div className="flex gap-3">
         <article className="px-8">
-          <h1>{data.title}</h1>
+          <h1 className="text-3xl sm:text-4xl">{data.title}</h1>
           <div dangerouslySetInnerHTML={{ __html: htmlContent }}></div>
         </article>
         <OnThisPage className="not-prose pr-2" htmlContent={htmlContent} />

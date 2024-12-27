@@ -1,15 +1,18 @@
-'use client'
+"use client";
 
 import navLinks from "@/constants/navLinks";
 import Link from "next/link";
 
 const Footer = () => {
   return (
-    <footer className="py-10 px-10 font-sans tracking-wide">
+    <footer className="py-4 sm:py-10 px-10 font-sans tracking-wide">
       <div className="max-w-screen-xl mx-auto">
-        <div className="flex flex-wrap items-center md:justify-between max-md:flex-col gap-6">
+        <div className="flex flex-wrap items-center justify-between gap-6">
           <div>
-            <Link href={"/"} className="font-mono font-semibold">
+            <Link
+              href={"/"}
+              className="font-mono font-semibold text-sm sm:text-base"
+            >
               drx
             </Link>
           </div>
@@ -20,7 +23,7 @@ const Footer = () => {
                 <li key={index}>
                   <Link
                     href={link.href}
-                    className="text-slate-900 dark:text-gray-300 hover:underline text-base"
+                    className="text-slate-900 dark:text-gray-300 hover:underline text-sm sm:text-base"
                   >
                     {link.label}
                   </Link>
@@ -30,9 +33,9 @@ const Footer = () => {
           </ul>
         </div>
 
-        <hr className="my-8 border-gray-500" />
+        <hr className="my-4 sm:my-8 border-gray-500" />
 
-        <p className="text-center text-slate-900 dark:text-gray-300 text-sm font-medium">
+        <p className="text-center text-slate-900 dark:text-gray-300 text-xs sm:text-sm font-medium">
           © drx. All rights reserved.
         </p>
       </div>

@@ -20,7 +20,7 @@ const BlogSection = async () => {
       <div className="font-sans p-6">
         <div className="grid grid-cols-1 lg:grid-cols-3 lg:gap-8 gap-12 items-center max-w-6xl max-lg:max-w-2xl max-sm:max-w-sm mx-auto">
           <div className="flex flex-col">
-            <h2 className="text-4xl font-bold text-black dark:text-white uppercase mb-6">
+            <h2 className="text-3xl sm:text-4xl font-bold text-black dark:text-white uppercase mb-3 sm:mb-6">
               Blogs
             </h2>
             <h2 className="text-3xl max-md:text-2xl font-extrabold text-gray-700 dark:text-slate-400 uppercase leading-8">

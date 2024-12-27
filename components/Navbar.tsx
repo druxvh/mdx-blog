@@ -22,7 +22,12 @@ function Navbar() {
             {navLinks.map(
               (link: { label: string; href: string }, index: number) => (
                 <li key={index}>
-                  <Link href={link.href}>{link.label}</Link>
+                  <Link
+                    href={link.href}
+                    className="text-slate-900 dark:text-gray-300 hover:underline text-base"
+                  >
+                    {link.label}
+                  </Link>
                 </li>
               )
             )}
